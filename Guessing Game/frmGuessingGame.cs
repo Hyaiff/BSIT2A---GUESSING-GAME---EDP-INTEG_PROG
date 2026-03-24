@@ -12,7 +12,7 @@ namespace Guessing_Game
 {
     public partial class frmMainMenu : Form
     {
-        string diffOption = "NOMRAL" ;
+        string diffOption = "NORMAL" ;
         public frmMainMenu()
         {
             InitializeComponent();
@@ -23,6 +23,7 @@ namespace Guessing_Game
 
         }
 
+        //Play/StartGame Button
         private void btnPlay_Click(object sender, EventArgs e)
         {
             frmGuessingGame game = new frmGuessingGame();
@@ -31,45 +32,36 @@ namespace Guessing_Game
             this.Hide();
         }
 
+        //Selecting Difficulty Button
         private void btnSelectDifficulty_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Select Difficulty: \n\nYes = EASY\nNo = NORMAL\nCancel = HARD", "Difficulty Selection", MessageBoxButtons.YesNoCancel);
 
-            if (result == DialogResult.Yes)
-            {
+            if (result == DialogResult.Yes)            {
                 diffOption = "EASY";
             }
-            else if (result == DialogResult.No)
-            {
+            else if (result == DialogResult.No)           {
                 diffOption = "NORMAL";
             }
-            else if (result == DialogResult.Cancel) 
-            {
+            else if (result == DialogResult.Cancel)             {
                 diffOption = "HARD";
             }
-
             btnSelectDifficulty.Text = "Difficulty: " + diffOption;
         }
 
-        private void btnQuit_Click(object sender, EventArgs e)
-        {
+        //Quit/Exit Buttion
+        private void btnQuit_Click(object sender, EventArgs e)       {
             Application.Exit();
         }
-
-        private void eASYToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void eASYToolStripMenuItem_Click(object sender, EventArgs e)       {
             diffOption = "EASY";
             btnSelectDifficulty.Text = "Difficulty: EASY";
         }
-
-        private void nORMALToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void nORMALToolStripMenuItem_Click(object sender, EventArgs e)        {
             diffOption = "NORMAL";
             btnSelectDifficulty.Text = "Difficulty: NORMAL";
         }
-
-        private void hARDToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void hARDToolStripMenuItem_Click(object sender, EventArgs e)        {
             diffOption = "HARD";
             btnSelectDifficulty.Text = "Difficulty: HARD";
         }
